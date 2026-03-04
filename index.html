@@ -24,10 +24,7 @@
       scroll-behavior: smooth;
     }
 
-    .title-font {
-      font-family: 'Orbitron', sans-serif;
-    }
-
+    .title-font { font-family: 'Orbitron', sans-serif; }
     .neon-text {
       text-shadow: 0 0 10px var(--electric-blue), 0 0 25px var(--electric-blue), 0 0 50px var(--neon-purple);
     }
@@ -38,14 +35,40 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(10, 14, 23, 0.9);
+      background: rgba(10, 14, 23, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0, 240, 255, 0.3);
     }
 
+    .header-logo {
+      font-size: 1.8rem; /* smaller on all screens to prevent clipping */
+    }
+
+    @media (min-width: 768px) {
+      .header-logo { font-size: 2.25rem; }
+    }
+
+    .event-poster-box {
+      height: 280px; /* good size for your wide images */
+      background: linear-gradient(45deg, #1e293b, #0f172a);
+      border-bottom: 2px solid var(--electric-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      overflow: hidden;
+    }
+
+    .event-poster-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
     .countdown-card {
       background: rgba(0, 240, 255, 0.1);
-      border: 2px solid var(--electric-blue);           /* border is back */
+      border: 2px solid var(--electric-blue);
       border-radius: 1rem;
       box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
       backdrop-filter: blur(10px);
@@ -58,12 +81,6 @@
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 240, 255, 0.15);
       backdrop-filter: blur(8px);
-    }
-
-    .event-poster-box {
-      height: 260px;
-      background: linear-gradient(45deg, #1e293b, #0f172a);
-      border-bottom: 2px solid var(--electric-blue);
     }
 
     .register-btn {
@@ -90,351 +107,266 @@
     }
 
     @media (max-width: 640px) {
-      .header-logo {
-        font-size: 1.6rem;           /* smaller logo in header */
-      }
-      .pt-20 {
-        padding-top: 5rem !important;
-      }
-      .event-poster-box {
-        height: 220px;
-      }
-      .register-btn {
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-      }
-      section {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-      }
+      .event-poster-box { height: 240px; padding: 12px; }
+      .pt-20 { padding-top: 5rem !important; }
+      section { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .register-btn { width: 100%; max-width: 280px; margin: 0 auto; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="py-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-      <h1 class="header-logo text-3xl md:text-4xl font-black title-font neon-text">ELEVARC 2.0</h1>
+<!-- Header -->
+<header class="py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+    <h1 class="header-logo font-black title-font neon-text">ELEVARC 2.0</h1>
 
-      <button id="menu-toggle" class="md:hidden text-3xl text-white focus:outline-none">
-        <i class="fas fa-bars"></i>
-      </button>
+    <button id="menu-toggle" class="md:hidden text-3xl text-white focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
 
-      <nav class="hidden md:flex gap-8 md:gap-12 text-lg font-medium">
-        <a href="#home" class="hover:text-cyan-300">Home</a>
-        <a href="#vision" class="hover:text-cyan-300">Vision</a>
-        <a href="#mission" class="hover:text-cyan-300">Mission</a>
-        <a href="#events" class="hover:text-cyan-300">Events</a>
+    <nav class="hidden md:flex gap-8 md:gap-12 text-lg font-medium">
+      <a href="#home" class="hover:text-cyan-300">Home</a>
+      <a href="#vision" class="hover:text-cyan-300">Vision</a>
+      <a href="#mission" class="hover:text-cyan-300">Mission</a>
+      <a href="#events" class="hover:text-cyan-300">Events</a>
+    </nav>
+
+    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-[#0a0e17]/95 backdrop-blur-lg border-t border-cyan-900/30 py-6 px-6">
+      <nav class="flex flex-col gap-6 text-xl font-medium text-center">
+        <a href="#home" class="hover:text-cyan-300 py-2">Home</a>
+        <a href="#vision" class="hover:text-cyan-300 py-2">Vision</a>
+        <a href="#mission" class="hover:text-cyan-300 py-2">Mission</a>
+        <a href="#events" class="hover:text-cyan-300 py-2">Events</a>
       </nav>
+    </div>
+  </div>
+</header>
 
-      <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-[#0a0e17]/95 backdrop-blur-lg border-t border-cyan-900/30 py-6 px-6">
-        <nav class="flex flex-col gap-6 text-xl font-medium text-center">
-          <a href="#home" class="hover:text-cyan-300 py-2">Home</a>
-          <a href="#vision" class="hover:text-cyan-300 py-2">Vision</a>
-          <a href="#mission" class="hover:text-cyan-300 py-2">Mission</a>
-          <a href="#events" class="hover:text-cyan-300 py-2">Events</a>
-        </nav>
+<div class="pt-20 md:pt-24 px-4 sm:px-6">
+
+  <!-- Hero + Countdown -->
+  <section id="home" class="hero min-h-screen flex items-center justify-center py-16">
+    <div class="max-w-7xl w-full space-y-12 md:space-y-16 text-center">
+      <div>
+        <h1 class="text-6xl sm:text-7xl md:text-9xl font-black title-font neon-text tracking-wider">
+          ELEVARC <span class="text-4xl sm:text-5xl md:text-7xl">2.0</span>
+        </h1>
+        <p class="mt-6 text-2xl sm:text-3xl md:text-4xl text-cyan-300 font-medium">
+          DEPARTMENT OF ELECTRONICS ENGINEERING<br>
+          SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR
+        </p>
+      </div>
+
+      <div class="mt-10 md:mt-12">
+        <p class="text-cyan-400 text-xl sm:text-2xl mb-6 md:mb-8 tracking-widest font-medium flex items-center justify-center gap-4">
+          <i class="fas fa-bolt text-yellow-400 text-4xl animate-pulse"></i>
+          ELEVARC 2.0 BEGINS IN
+        </p>
+        <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"></div>
+        <p class="mt-8 text-lg sm:text-xl text-slate-300">
+          <strong>9th & 10th March 2026</strong> • 9:00 AM onwards
+        </p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <div class="pt-20 md:pt-24">
+  <!-- Landscape Image -->
+  <section class="py-12 bg-[#0f172a]">
+    <div class="max-w-7xl mx-auto">
+      <img src="srgptc.jpeg" alt="College Campus" class="w-full h-auto rounded-2xl shadow-2xl shadow-cyan-900/30 object-cover">
+    </div>
+  </section>
 
-    <!-- Hero + Countdown -->
-    <section id="home" class="hero min-h-screen flex items-center justify-center py-16 px-4 sm:px-6">
-      <div class="max-w-7xl w-full space-y-12 md:space-y-16 text-center">
-        <div>
-          <h1 class="text-6xl sm:text-7xl md:text-9xl font-black title-font neon-text tracking-wider">
-            ELEVARC <span class="text-4xl sm:text-5xl md:text-7xl">2.0</span>
-          </h1>
-          <p class="mt-6 text-2xl sm:text-3xl md:text-4xl text-cyan-300 font-medium">
-            DEPARTMENT OF ELECTRONICS ENGINEERING<br>
-            SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR
-          </p>
+  <!-- Vision -->
+  <section id="vision" class="py-16 bg-[#0a0e17]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT VISION</h2>
+      <div class="w-36 h-1 bg-green-500 mx-auto mb-12 rounded"></div>
+      <div class="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+        <p class="text-xl text-slate-100 leading-relaxed text-center">
+          TO BE RECOGNIZED AS THE PREMIER CENTER IN THE FIELD OF ELECTRONICS ENGINEERING EDUCATION, PRODUCING TECHNICALLY COMPETENT AND SOCIALLY RESPONSIBLE PROFESSIONALS.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="mission" class="py-16 bg-[#0f172a]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT MISSION</h2>
+      <div class="w-36 h-1 bg-green-500 mx-auto mb-12 rounded"></div>
+      <div class="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+        <ul class="text-xl text-slate-200 leading-relaxed space-y-6 list-disc pl-8 mx-auto max-w-3xl">
+          <li>M1: TO IMPART TECHNICAL EDUCATION IN LINE WITH EFFECTIVE TEACHING LEARNING PROCESS TO MEET THE CURRENT INDUSTRIAL AND SOCIETAL NEEDS.</li>
+          <li>M2: TO STRENGTHEN ACADEMIC INFRASTRUCTURE BY PROVIDING STATE-OF-THE-ART LABORATORIES THAT ALIGN WITH TRENDS IN TECHNOLOGY.</li>
+          <li>M3: TO PROVIDE A CONDUCIVE ENVIRONMENT TO ENCOURAGE STUDENTS TO DEVELOP ENTREPRENEURSHIP SKILLS AND LIFE-LONG LEARNING.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section id="events" class="py-20 md:py-24 bg-gradient-to-b from-[#0a0e17] to-black">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-6">OUR EVENTS</h2>
+      <p class="text-center text-cyan-300 text-xl md:text-2xl mb-12">6 electrifying competitions • Register now!</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- ELECTRO BUILD -->
+        <div class="event-card">
+          <div class="event-poster-box">
+            <img src="electrobuild.png" alt="ELECTRO BUILD (CIRCUIT ASSEMBLING)">
+          </div>
+          <div class="p-6 space-y-4 text-center">
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"ELECTRO BUILD" CIRCUIT ASSEMBLING</h3>
+            <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p><strong>Contacts:</strong></p>
+              <p>MOHAMED RAFI M S - 9656968670</p>
+              <p>RIVIN C Z - 9947051748</p>
+            </div>
+            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
+            <div class="mt-6 space-y-6 flex flex-col items-center">
+              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
+                REGISTER NOW →
+              </a>
+              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
+            </div>
+          </div>
         </div>
 
-        <div class="mt-10 md:mt-12">
-          <p class="text-cyan-400 text-xl sm:text-2xl mb-6 md:mb-8 tracking-widest font-medium flex items-center justify-center gap-4">
-            <i class="fas fa-bolt text-yellow-400 text-4xl animate-pulse"></i>
-            ELEVARC 2.0 BEGINS IN
-          </p>
-          <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"></div>
-          <p class="mt-8 text-lg sm:text-xl text-slate-300">
-            <strong>9th & 10th March 2026</strong> • 9:00 AM onwards
-          </p>
+        <!-- COMPILE CLASH -->
+        <div class="event-card">
+          <div class="event-poster-box">
+            <img src="compilecrash.png" alt="COMPILE CLASH (C PROGRAMMING)">
+          </div>
+          <div class="p-6 space-y-4 text-center">
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"COMPILE CLASH" C PROGRAMMING</h3>
+            <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p><strong>Contacts:</strong></p>
+              <p>HIRAN S NAIR - 9656968670</p>
+              <p>VYSHNAV U R - 8891023548</p>
+            </div>
+            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
+            <div class="mt-6 space-y-6 flex flex-col items-center">
+              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
+                REGISTER NOW →
+              </a>
+              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Landscape Image -->
-    <section class="py-12 bg-[#0f172a]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <img src="srgptc.jpeg" alt="College Campus" class="w-full h-auto rounded-2xl shadow-2xl shadow-cyan-900/30 object-cover">
-      </div>
-    </section>
-
-    <!-- Vision -->
-    <section id="vision" class="py-16 bg-[#0a0e17]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT VISION</h2>
-        <div class="green-line mx-auto mb-12"></div>
-        <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
-          <p class="text-xl text-slate-100 leading-relaxed text-center">
-            TO BE RECOGNIZED AS THE PREMIER CENTER IN THE FIELD OF ELECTRONICS ENGINEERING EDUCATION, PRODUCING TECHNICALLY COMPETENT AND SOCIALLY RESPONSIBLE PROFESSIONALS.
-          </p>
+        <!-- TECHCORTEX -->
+        <div class="event-card">
+          <div class="event-poster-box">
+            <img src="techcortex.png" alt="TECHCORTEX (ONLINE QUIZ)">
+          </div>
+          <div class="p-6 space-y-4 text-center">
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"TECHCORTEX" TECHNICAL QUIZ</h3>
+            <div class="event-date-highlight">10-03-2026, 10:00 AM</div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p><strong>Contacts:</strong></p>
+              <p>AKASH E A - 8848733028</p>
+              <p>WILLIAM BANCHAMIN - 7012049496</p>
+            </div>
+            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
+            <div class="mt-6 space-y-6 flex flex-col items-center">
+              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
+                REGISTER NOW →
+              </a>
+              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
+            </div>
+          </div>
         </div>
+
+        <!-- Add your remaining 3 events (Mindmaze, Football, RC Soccer) in the same structure -->
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Mission -->
-    <section id="mission" class="py-16 bg-[#0f172a]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT MISSION</h2>
-        <div class="green-line mx-auto mb-12"></div>
-        <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
-          <ul class="text-xl text-slate-200 leading-relaxed space-y-6 list-disc pl-8 mx-auto max-w-3xl">
-            <li>M1: TO IMPART TECHNICAL EDUCATION IN LINE WITH EFFECTIVE TEACHING LEARNING PROCESS TO MEET THE CURRENT INDUSTRIAL AND SOCIETAL NEEDS.</li>
-            <li>M2: TO STRENGTHEN ACADEMIC INFRASTRUCTURE BY PROVIDING STATE-OF-THE-ART LABORATORIES THAT ALIGN WITH TRENDS IN TECHNOLOGY.</li>
-            <li>M3: TO PROVIDE A CONDUCIVE ENVIRONMENT TO ENCOURAGE STUDENTS TO DEVELOP ENTREPRENEURSHIP SKILLS AND LIFE-LONG LEARNING.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <!-- Events Section -->
-    <section id="events" class="py-24 bg-gradient-to-b from-[#0a0e17] to-black">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-6">OUR EVENTS</h2>
-        <p class="text-center text-cyan-300 text-2xl mb-16">6 electrifying competitions • Register now!</p>
+<!-- Footer -->
+<footer class="py-12 bg-black border-t border-cyan-900/50 text-center text-slate-400">
+  <p>© 2026 DEPARTMENT OF ELECTRONICS ENGINEERING</p>
+  <p>SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR</p>
+  <p class="mt-4 text-lg">Created by EL Department - SRGPTC Thriprayar</p>
+</footer>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<script>
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
 
-          <!-- Event 1 -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="mindmaze.png" alt="Cross Word Puzzle">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"MINDMAZE MATRIX" CROSS WORD PUZZLE</h3>
-              <div class="event-date-highlight">09-03-2026, 10:00 AM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>OBIN C BABY - 8714177613</p>
-                <p>FATHIMA RISHANA R R - 9142044858</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  });
 
-          <!-- Event 2 -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="techcortex.png" alt="Technical Quiz">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"TECHCORTEX" TECHNICAL QUIZ</h3>
-              <div class="event-date-highlight">10-03-2026, 10:00 AM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>AKASH E A - 8848733028</p>
-                <p>WILLIAM BANCHAMIN - 7012049496</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.add('fa-bars');
+      icon.classList.remove('fa-times');
+    });
+  });
+}
 
-          <!-- Event 3 -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="electrobuild.png" alt="Circuit Assembling">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"ELECTRO BUILD" CIRCUIT ASSEMBLING</h3>
-              <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>MOHAMED RAFI M S - 9656968670</p>
-                <p>RIVIN C Z - 9947051748</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
+// Countdown
+function startCountdown() {
+  const target = new Date("2026-03-09T09:00:00+05:30").getTime();
+  const countdownEl = document.getElementById('countdown');
 
-          <!-- Event 4 -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="compilecrash.png" alt="C Programming">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"COMPILE CLASH" C PROGRAMMING</h3>
-              <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>HIRAN S NAIR - 9656968670</p>
-                <p>VYSHNAV U R - 8891023548</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 5 - PESS Football -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="pes.jpg" alt="Football Tournament">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"FOOTBALL" PESS TOURNAMENT</h3>
-              <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>HIRAN S NAIR - 9656968670</p>
-                <p>VYSHNAV U R - 8891023548</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: Rs.500</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹30 (PESS only)</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 6 -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="rcs.jpg" alt="RC Soccer">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"TURBO TURF" - RC SOCCER</h3>
-              <div class="event-date-highlight">10-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>ABHAY T V - 9995051264</p>
-                <p>KRISHNARAJ - 7306770952</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 500</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- Footer -->
-  <footer class="py-12 bg-black border-t border-cyan-900/50 text-center text-slate-400">
-    <p>© 2026 DEPARTMENT OF ELECTRONICS ENGINEERING</p>
-    <p>SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR</p>
-    <p class="mt-4 text-lg">Created by EL Department - SRGPTC Thriprayar</p>
-  </footer>
-
-  <script>
-    // Mobile menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      });
-
-      document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          const icon = menuToggle.querySelector('i');
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
-        });
-      });
+  function update() {
+    const now = new Date().getTime();
+    let diff = target - now;
+    if (diff <= 0) {
+      countdownEl.innerHTML = '<div class="col-span-full bg-green-900/40 border border-green-400 text-green-300 p-10 rounded-3xl text-4xl font-bold title-font text-center">ELEVARC 2.0 IS LIVE NOW!</div>';
+      return;
     }
 
-    // Countdown
-    function startCountdown() {
-      const target = new Date("2026-03-09T09:00:00+05:30").getTime();
-      const countdownEl = document.getElementById('countdown');
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      function update() {
-        const now = new Date().getTime();
-        let diff = target - now;
+    countdownEl.innerHTML = `
+      <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
+        <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${days}</div>
+        <div class="text-sm md:text-base mt-2 tracking-widest">DAYS</div>
+      </div>
+      <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
+        <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${hours}</div>
+        <div class="text-sm md:text-base mt-2 tracking-widest">HOURS</div>
+      </div>
+      <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
+        <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${minutes}</div>
+        <div class="text-sm md:text-base mt-2 tracking-widest">MINUTES</div>
+      </div>
+      <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
+        <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${seconds}</div>
+        <div class="text-sm md:text-base mt-2 tracking-widest">SECONDS</div>
+      </div>
+    `;
+  }
 
-        if (diff <= 0) {
-          countdownEl.innerHTML = '<div class="col-span-full bg-green-900/40 border border-green-400 text-green-300 p-10 rounded-3xl text-4xl font-bold title-font text-center">ELEVARC 2.0 IS LIVE NOW!</div>';
-          return;
-        }
+  setInterval(update, 1000);
+  update();
+}
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        countdownEl.innerHTML = `
-          <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
-            <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${days}</div>
-            <div class="text-sm md:text-base mt-2 tracking-widest">DAYS</div>
-          </div>
-          <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
-            <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${hours}</div>
-            <div class="text-sm md:text-base mt-2 tracking-widest">HOURS</div>
-          </div>
-          <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
-            <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${minutes}</div>
-            <div class="text-sm md:text-base mt-2 tracking-widest">MINUTES</div>
-          </div>
-          <div class="countdown-card rounded-3xl p-6 md:p-8 text-center">
-            <div class="text-5xl md:text-7xl font-black title-font text-cyan-300">${seconds}</div>
-            <div class="text-sm md:text-base mt-2 tracking-widest">SECONDS</div>
-          </div>
-        `;
-      }
-
-      setInterval(update, 1000);
-      update();
-    }
-
-    window.onload = startCountdown;
-  </script>
+window.onload = startCountdown;
+</script>
 </body>
 </html>
