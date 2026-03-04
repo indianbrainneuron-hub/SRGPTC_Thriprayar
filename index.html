@@ -48,19 +48,6 @@
       box-shadow: 0 0 35px rgba(0, 240, 255, 0.35);
       backdrop-filter: blur(10px);
     }
-    .about-section {
-      background: #0f172a;
-      padding: 5rem 1.5rem;
-    }
-    .vision-mission-section {
-      background: #0f172a;
-      padding: 4rem 1.5rem;
-    }
-    .about-image {
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 240, 255, 0.15);
-    }
     .vision-mission-text {
       background: rgba(255,255,255,0.03);
       backdrop-filter: blur(10px);
@@ -134,11 +121,50 @@
     </div>
   </section>
 
-  <!-- Events Section -->
+  <!-- Landscape Image -->
+  <section class="py-12 bg-[#0f172a]">
+    <div class="max-w-7xl mx-auto px-6">
+      <img 
+        src="srgptc.jpeg" 
+        alt="Sreerama Government Polytechnic College Campus" 
+        class="w-full h-auto rounded-2xl shadow-2xl shadow-cyan-900/30 object-cover"
+      >
+    </div>
+  </section>
+
+  <!-- Department Vision -->
+  <section class="py-16 bg-[#0a0e17]">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT VISION</h2>
+      <div class="green-line mx-auto mb-12"></div>
+      <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
+        <p class="text-xl text-slate-100 leading-relaxed text-center">
+          TO BE RECOGNIZED AS THE PREMIER CENTER IN THE FIELD OF ELECTRONICS ENGINEERING EDUCATION, PRODUCING TECHNICALLY COMPETENT AND SOCIALLY RESPONSIBLE PROFESSIONALS.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Department Mission -->
+  <section class="py-16 bg-[#0f172a]">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT MISSION</h2>
+      <div class="green-line mx-auto mb-12"></div>
+      <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
+        <ul class="text-xl text-slate-200 leading-relaxed space-y-6 list-disc pl-8">
+          <li>M1: TO IMPART TECHNICAL EDUCATION IN LINE WITH EFFECTIVE TEACHING LEARNING PROCESS TO MEET THE CURRENT INDUSTRIAL AND SOCIETAL NEEDS.</li>
+          <li>M2: TO STRENGTHEN ACADEMIC INFRASTRUCTURE BY PROVIDING STATE-OF-THE-ART LABORATORIES THAT ALIGN WITH TRENDS IN TECHNOLOGY.</li>
+          <li>M3: TO PROVIDE A CONDUCIVE ENVIRONMENT TO ENCOURAGE STUDENTS TO DEVELOP ENTREPRENEURSHIP SKILLS AND LIFE-LONG LEARNING.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section – 6 events -->
   <section class="py-24 bg-gradient-to-b from-[#0a0e17] to-black">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-6xl font-black title-font text-center neon-text mb-6">OUR EVENTS</h2>
-      <p class="text-center text-cyan-300 text-2xl mb-16">7 electrifying competitions • Register now!</p>
+      <p class="text-center text-cyan-300 text-2xl mb-16">6 electrifying competitions • Register now!</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
@@ -161,7 +187,7 @@
                  class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
                 REGISTER NOW →
               </a>
-              <img src="mindmazeqr.jpg" alt="QR Code - Mindmaze Matrix" class="mx-auto w-32 h-32 object-contain">
+              <img src="mindmazeqr.jpg" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
             </div>
           </div>
         </div>
@@ -185,7 +211,7 @@
                  class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
                 REGISTER NOW →
               </a>
-              <img src="qr-techcortex.png" alt="QR Code - Tech Cortex" class="mx-auto w-32 h-32 object-contain">
+              <img src="qr-techcortex.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
             </div>
           </div>
         </div>
@@ -209,7 +235,7 @@
                  class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
                 REGISTER NOW →
               </a>
-              <img src="qr-electrobuild.png" alt="QR Code - Electro Build" class="mx-auto w-32 h-32 object-contain">
+              <img src="qr-electrobuild.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
             </div>
           </div>
         </div>
@@ -233,7 +259,7 @@
                  class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
                  REGISTER NOW →
               </a>
-              <img src="qr-compileclash.png" alt="QR Code - Compile Clash" class="mx-auto w-32 h-32 object-contain">
+              <img src="qr-compileclash.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
             </div>
           </div>
         </div>
@@ -257,7 +283,7 @@
                  class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
                  REGISTER NOW →
               </a>
-              <img src="qr-pess.png" alt="QR Code - PESS Tournament" class="mx-auto w-32 h-32 object-contain">
+              <img src="qr-pess.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
             </div>
           </div>
         </div>
@@ -265,7 +291,7 @@
         <!-- Event 6 -->
         <div class="event-card">
           <div class="event-poster-box">
-            <img src="poster6.jpg" alt="Event 6 Poster" class="w-full h-full object-cover">
+            <img src="event6.jpg" alt="Event 6 Poster" class="w-full h-full object-cover">
           </div>
           <div class="p-6 space-y-4">
             <h3 class="text-2xl font-bold title-font text-cyan-300">EVENT NAME 6</h3>
@@ -281,61 +307,11 @@
                  class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
                 REGISTER NOW →
               </a>
-              <img src="qr6.png" alt="QR Code - Event 6" class="mx-auto w-32 h-32 object-contain">
+              <img src="qr6.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
             </div>
           </div>
         </div>
 
-        <!-- Event 7 -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="poster7.jpg" alt="Event 7 Poster" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-2xl font-bold title-font text-cyan-300">EVENT NAME 7</h3>
-            <p class="text-slate-300 font-medium">Date & Time: 10-03-2026, XX:XX</p>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>Name - Phone</p>
-              <p>Name - Phone</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: XXX</p>
-            <div class="text-center mt-6 space-y-4">
-              <a href="https://forms.gle/YOUR_FORM_LINK_7" target="_blank"
-                 class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                REGISTER NOW →
-              </a>
-              <img src="qr7.png" alt="QR Code - Event 7" class="mx-auto w-32 h-32 object-contain">
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Department Vision & Mission – at bottom -->
-  <section class="vision-mission-section">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl md:text-6xl font-black title-font text-center text-white mb-8">DEPARTMENT VISION & MISSION</h2>
-      <div class="green-line mx-auto mb-12"></div>
-
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="vision-mission-text rounded-2xl">
-          <h3 class="text-4xl font-bold text-cyan-300 mb-6 text-center">DEPARTMENT VISION</h3>
-          <p class="text-xl text-slate-100 leading-relaxed text-center">
-            TO BE RECOGNIZED AS THE PREMIER CENTER IN THE FIELD OF ELECTRONICS ENGINEERING EDUCATION, PRODUCING TECHNICALLY COMPETENT AND SOCIALLY RESPONSIBLE PROFESSIONALS.
-          </p>
-        </div>
-
-        <div class="vision-mission-text rounded-2xl">
-          <h3 class="text-4xl font-bold text-cyan-300 mb-6 text-center">DEPARTMENT MISSION</h3>
-          <ul class="text-xl text-slate-200 leading-relaxed space-y-6 list-disc pl-8">
-            <li>M1: TO IMPART TECHNICAL EDUCATION IN LINE WITH EFFECTIVE TEACHING LEARNING PROCESS TO MEET THE CURRENT INDUSTRIAL AND SOCIETAL NEEDS.</li>
-            <li>M2: TO STRENGTHEN ACADEMIC INFRASTRUCTURE BY PROVIDING STATE-OF-THE-ART LABORATORIES THAT ALIGN WITH TRENDS IN TECHNOLOGY.</li>
-            <li>M3: TO PROVIDE A CONDUCIVE ENVIRONMENT TO ENCOURAGE STUDENTS TO DEVELOP ENTREPRENEURSHIP SKILLS AND LIFE-LONG LEARNING.</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
