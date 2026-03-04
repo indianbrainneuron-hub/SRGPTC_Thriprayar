@@ -41,7 +41,7 @@
     }
 
     .header-logo {
-      font-size: 1.8rem; /* smaller on all screens to prevent clipping */
+      font-size: 1.8rem;
     }
 
     @media (min-width: 768px) {
@@ -49,13 +49,13 @@
     }
 
     .event-poster-box {
-      height: 280px; /* good size for your wide images */
+      height: 300px;                    /* taller to fit wide images nicely */
       background: linear-gradient(45deg, #1e293b, #0f172a);
       border-bottom: 2px solid var(--electric-blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 15px;
+      padding: 20px;                    /* padding helps center wide images */
       overflow: hidden;
     }
 
@@ -107,7 +107,7 @@
     }
 
     @media (max-width: 640px) {
-      .event-poster-box { height: 240px; padding: 12px; }
+      .event-poster-box { height: 260px; padding: 15px; }
       .pt-20 { padding-top: 5rem !important; }
       section { padding-left: 1rem !important; padding-right: 1rem !important; }
       .register-btn { width: 100%; max-width: 280px; margin: 0 auto; }
@@ -116,7 +116,6 @@
 </head>
 <body>
 
-<!-- Header -->
 <header class="py-4">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
     <h1 class="header-logo font-black title-font neon-text">ELEVARC 2.0</h1>
@@ -206,7 +205,7 @@
     </div>
   </section>
 
-  <!-- Events -->
+  <!-- Events - ALL 6 -->
   <section id="events" class="py-20 md:py-24 bg-gradient-to-b from-[#0a0e17] to-black">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-6">OUR EVENTS</h2>
@@ -214,18 +213,18 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- ELECTRO BUILD -->
+        <!-- 1. Mindmaze -->
         <div class="event-card">
           <div class="event-poster-box">
-            <img src="electrobuild.png" alt="ELECTRO BUILD (CIRCUIT ASSEMBLING)">
+            <img src="mindmaze.png" alt="MINDMAZE MATRIX">
           </div>
           <div class="p-6 space-y-4 text-center">
-            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"ELECTRO BUILD" CIRCUIT ASSEMBLING</h3>
-            <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"MINDMAZE MATRIX" CROSS WORD PUZZLE</h3>
+            <div class="event-date-highlight">09-03-2026, 10:00 AM</div>
             <div class="text-sm text-slate-300 space-y-1">
               <p><strong>Contacts:</strong></p>
-              <p>MOHAMED RAFI M S - 9656968670</p>
-              <p>RIVIN C Z - 9947051748</p>
+              <p>OBIN C BABY - 8714177613</p>
+              <p>FATHIMA RISHANA R R - 9142044858</p>
             </div>
             <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
             <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
@@ -238,34 +237,10 @@
           </div>
         </div>
 
-        <!-- COMPILE CLASH -->
+        <!-- 2. TECHCORTEX -->
         <div class="event-card">
           <div class="event-poster-box">
-            <img src="compilecrash.png" alt="COMPILE CLASH (C PROGRAMMING)">
-          </div>
-          <div class="p-6 space-y-4 text-center">
-            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"COMPILE CLASH" C PROGRAMMING</h3>
-            <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>HIRAN S NAIR - 9656968670</p>
-              <p>VYSHNAV U R - 8891023548</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-            <div class="mt-6 space-y-6 flex flex-col items-center">
-              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
-                REGISTER NOW →
-              </a>
-              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
-            </div>
-          </div>
-        </div>
-
-        <!-- TECHCORTEX -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="techcortex.png" alt="TECHCORTEX (ONLINE QUIZ)">
+            <img src="techcortex.png" alt="TECHCORTEX">
           </div>
           <div class="p-6 space-y-4 text-center">
             <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"TECHCORTEX" TECHNICAL QUIZ</h3>
@@ -286,7 +261,101 @@
           </div>
         </div>
 
-        <!-- Add your remaining 3 events (Mindmaze, Football, RC Soccer) in the same structure -->
+        <!-- 3. ELECTRO BUILD -->
+        <div class="event-card">
+          <div class="event-poster-box">
+            <img src="electrobuild.png" alt="ELECTRO BUILD">
+          </div>
+          <div class="p-6 space-y-4 text-center">
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"ELECTRO BUILD" CIRCUIT ASSEMBLING</h3>
+            <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p><strong>Contacts:</strong></p>
+              <p>MOHAMED RAFI M S - 9656968670</p>
+              <p>RIVIN C Z - 9947051748</p>
+            </div>
+            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
+            <div class="mt-6 space-y-6 flex flex-col items-center">
+              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
+                REGISTER NOW →
+              </a>
+              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. COMPILE CLASH -->
+        <div class="event-card">
+          <div class="event-poster-box">
+            <img src="compilecrash.png" alt="COMPILE CLASH">
+          </div>
+          <div class="p-6 space-y-4 text-center">
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"COMPILE CLASH" C PROGRAMMING</h3>
+            <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p><strong>Contacts:</strong></p>
+              <p>HIRAN S NAIR - 9656968670</p>
+              <p>VYSHNAV U R - 8891023548</p>
+            </div>
+            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
+            <div class="mt-6 space-y-6 flex flex-col items-center">
+              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
+                REGISTER NOW →
+              </a>
+              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. FOOTBALL PESS -->
+        <div class="event-card">
+          <div class="event-poster-box">
+            <img src="pes.jpg" alt="FOOTBALL PESS">
+          </div>
+          <div class="p-6 space-y-4 text-center">
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"FOOTBALL" PESS TOURNAMENT</h3>
+            <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p><strong>Contacts:</strong></p>
+              <p>HIRAN S NAIR - 9656968670</p>
+              <p>VYSHNAV U R - 8891023548</p>
+            </div>
+            <p class="text-green-400 font-bold text-lg">Prize Pool: Rs.500</p>
+            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹30 (PESS only)</div>
+            <div class="mt-6 space-y-6 flex flex-col items-center">
+              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
+                REGISTER NOW →
+              </a>
+              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. TURBO TURF RC SOCCER -->
+        <div class="event-card">
+          <div class="event-poster-box">
+            <img src="rcs.jpg" alt="TURBO TURF RC SOCCER">
+          </div>
+          <div class="p-6 space-y-4 text-center">
+            <h3 class="text-xl md:text-2xl font-bold title-font text-cyan-300">"TURBO TURF" - RC SOCCER</h3>
+            <div class="event-date-highlight">10-03-2026, 01:00 PM</div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p><strong>Contacts:</strong></p>
+              <p>ABHAY T V - 9995051264</p>
+              <p>KRISHNARAJ - 7306770952</p>
+            </div>
+            <p class="text-green-400 font-bold text-lg">Prize Pool: 500</p>
+            <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
+            <div class="mt-6 space-y-6 flex flex-col items-center">
+              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-10 register-btn rounded-xl text-lg shadow-lg">
+                REGISTER NOW →
+              </a>
+              <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -294,7 +363,6 @@
 
 </div>
 
-<!-- Footer -->
 <footer class="py-12 bg-black border-t border-cyan-900/50 text-center text-slate-400">
   <p>© 2026 DEPARTMENT OF ELECTRONICS ENGINEERING</p>
   <p>SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR</p>
