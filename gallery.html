@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | ELEVARC 2.0</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --electric-blue: #00f0ff;
+      --neon-purple: #9d00ff;
+      --dark-bg: #0a0e17;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: white;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .title-font { font-family: 'Orbitron', sans-serif; }
+    .neon-text {
+      text-shadow: 0 0 10px var(--electric-blue), 0 0 25px var(--electric-blue), 0 0 50px var(--neon-purple);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header (same style as main page) -->
+<header class="py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+    <h1 class="text-3xl md:text-4xl font-black title-font neon-text">ELEVARC 2.0</h1>
+
+    <button id="menu-toggle" class="md:hidden text-3xl text-white focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="hidden md:flex gap-8 md:gap-12 text-lg font-medium">
+      <a href="index.html#home" class="hover:text-cyan-300">Home</a>
+      <a href="index.html#vision" class="hover:text-cyan-300">Vision</a>
+      <a href="index.html#mission" class="hover:text-cyan-300">Mission</a>
+      <a href="index.html#events" class="hover:text-cyan-300">Events</a>
+      <a href="gallery.html" class="text-cyan-300 font-semibold">Gallery</a>
+    </nav>
+
+    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-[#0a0e17]/95 backdrop-blur-lg border-t border-cyan-900/30 py-6 px-6">
+      <nav class="flex flex-col gap-6 text-xl font-medium text-center">
+        <a href="index.html#home" class="hover:text-cyan-300 py-2">Home</a>
+        <a href="index.html#vision" class="hover:text-cyan-300 py-2">Vision</a>
+        <a href="index.html#mission" class="hover:text-cyan-300 py-2">Mission</a>
+        <a href="index.html#events" class="hover:text-cyan-300 py-2">Events</a>
+        <a href="gallery.html" class="text-cyan-300 font-semibold py-2">Gallery</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="pt-20 md:pt-24 px-4 sm:px-6">
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-black title-font neon-text mb-4">GALLERY</h1>
+      <p class="text-xl md:text-2xl text-cyan-300 mb-12">Moments from ELEVARC 2.0</p>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        <!-- Replace these src with your actual gallery images -->
+        <div class="gallery-item"><img src="gallery/1.jpg" alt="Event photo 1"></div>
+        <div class="gallery-item"><img src="gallery/2.jpg" alt="Event photo 2"></div>
+        <div class="gallery-item"><img src="gallery/3.jpg" alt="Event photo 3"></div>
+        <div class="gallery-item"><img src="gallery/4.jpg" alt="Event photo 4"></div>
+        <div class="gallery-item"><img src="gallery/5.jpg" alt="Event photo 5"></div>
+        <div class="gallery-item"><img src="gallery/6.jpg" alt="Event photo 6"></div>
+        <!-- Add more <div class="gallery-item"><img src="..." alt="..."></div> as needed -->
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer (same as main page) -->
+<footer class="py-12 bg-black border-t border-cyan-900/50 text-center text-slate-400">
+  <p>© 2026 DEPARTMENT OF ELECTRONICS ENGINEERING</p>
+  <p>SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR</p>
+  <p class="mt-4 text-lg">Created by EL Department - SRGPTC Thriprayar</p>
+</footer>
+
+<script>
+// Mobile menu toggle (same as main page)
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.add('fa-bars');
+      icon.classList.remove('fa-times');
+    });
+  });
+}
+</script>
+</body>
+</html>
