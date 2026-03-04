@@ -18,6 +18,7 @@
       background: var(--dark-bg);
       color: white;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     .title-font {
       font-family: 'Orbitron', sans-serif;
@@ -91,229 +92,267 @@
       box-shadow: 0 0 25px var(--electric-blue);
       color: white;
     }
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 240, 255, 0.1);
+    }
+    nav a {
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      color: var(--electric-blue);
+      text-shadow: 0 0 15px var(--electric-blue);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Hero + Countdown -->
-  <section class="hero min-h-screen flex items-center justify-center py-16 px-6">
-    <div class="max-w-7xl w-full space-y-16 text-center">
-      <div>
-        <h1 class="text-7xl md:text-9xl font-black title-font neon-text tracking-wider">
-          ELEVARC <span class="text-5xl md:text-7xl">2.0</span>
-        </h1>
-        <p class="mt-8 text-3xl md:text-4xl text-cyan-300 font-medium">
-          DEPARTMENT OF ELECTRONICS ENGINEERING<br>
-          SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR
-        </p>
-      </div>
-
-      <div class="mt-12">
-        <p class="text-cyan-400 text-2xl mb-8 tracking-widest font-medium flex items-center justify-center gap-4">
-          <i class="fas fa-bolt text-yellow-400 text-4xl animate-pulse"></i>
-          ELEVARC 2.0 BEGINS IN
-        </p>
-        <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"></div>
-        <p class="mt-10 text-xl text-slate-300">
-          <strong>9th & 10th March 2026</strong> • 9:00 AM onwards
-        </p>
-      </div>
+  <!-- Sticky Header / Navigation -->
+  <header class="py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-3xl font-black title-font neon-text">ELEVARC 2.0</h1>
+      <nav class="flex gap-8 md:gap-12 text-lg font-medium">
+        <a href="#home" class="hover:text-cyan-300">Home</a>
+        <a href="#vision" class="hover:text-cyan-300">Vision</a>
+        <a href="#mission" class="hover:text-cyan-300">Mission</a>
+        <a href="#events" class="hover:text-cyan-300">Events</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Landscape Image -->
-  <section class="py-12 bg-[#0f172a]">
-    <div class="max-w-7xl mx-auto px-6">
-      <img 
-        src="srgptc.jpeg" 
-        alt="Sreerama Government Polytechnic College Campus" 
-        class="w-full h-auto rounded-2xl shadow-2xl shadow-cyan-900/30 object-cover"
-      >
-    </div>
-  </section>
+  <!-- Add padding-top so content is not hidden under fixed header -->
+  <div class="pt-24">
 
-  <!-- Department Vision -->
-  <section class="py-16 bg-[#0a0e17]">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT VISION</h2>
-      <div class="green-line mx-auto mb-12"></div>
-      <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
-        <p class="text-xl text-slate-100 leading-relaxed text-center">
-          TO BE RECOGNIZED AS THE PREMIER CENTER IN THE FIELD OF ELECTRONICS ENGINEERING EDUCATION, PRODUCING TECHNICALLY COMPETENT AND SOCIALLY RESPONSIBLE PROFESSIONALS.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Department Mission -->
-  <section class="py-16 bg-[#0f172a]">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT MISSION</h2>
-      <div class="green-line mx-auto mb-12"></div>
-      <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
-        <ul class="text-xl text-slate-200 leading-relaxed space-y-6 list-disc pl-8">
-          <li>M1: TO IMPART TECHNICAL EDUCATION IN LINE WITH EFFECTIVE TEACHING LEARNING PROCESS TO MEET THE CURRENT INDUSTRIAL AND SOCIETAL NEEDS.</li>
-          <li>M2: TO STRENGTHEN ACADEMIC INFRASTRUCTURE BY PROVIDING STATE-OF-THE-ART LABORATORIES THAT ALIGN WITH TRENDS IN TECHNOLOGY.</li>
-          <li>M3: TO PROVIDE A CONDUCIVE ENVIRONMENT TO ENCOURAGE STUDENTS TO DEVELOP ENTREPRENEURSHIP SKILLS AND LIFE-LONG LEARNING.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Events Section – 6 events -->
-  <section class="py-24 bg-gradient-to-b from-[#0a0e17] to-black">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-6xl font-black title-font text-center neon-text mb-6">OUR EVENTS</h2>
-      <p class="text-center text-cyan-300 text-2xl mb-16">6 electrifying competitions • Register now!</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-        <!-- Event 1 -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="mindmaze.png" alt="Cross Word Puzzle Poster" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-2xl font-bold title-font text-cyan-300">CROSS WORD PUZZLE - MINDMAZE MATRIX</h3>
-            <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 10:00 AM</p>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>OBIN C BABY - 8714177613</p>
-              <p>FATHIMA RISHANA R R - 9142044858</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-            <div class="text-center mt-6 space-y-4">
-              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
-                 class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                REGISTER NOW →
-              </a>
-              <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
-            </div>
-          </div>
+    <!-- Hero + Countdown (Home) -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center py-16 px-6">
+      <div class="max-w-7xl w-full space-y-16 text-center">
+        <div>
+          <h1 class="text-7xl md:text-9xl font-black title-font neon-text tracking-wider">
+            ELEVARC <span class="text-5xl md:text-7xl">2.0</span>
+          </h1>
+          <p class="mt-8 text-3xl md:text-4xl text-cyan-300 font-medium">
+            DEPARTMENT OF ELECTRONICS ENGINEERING<br>
+            SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR
+          </p>
         </div>
 
-        <!-- Event 2 -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="techcortex.png" alt="Technical Quiz Poster" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-2xl font-bold title-font text-cyan-300">TECHNICAL QUIZ - TECH CORTEX</h3>
-            <p class="text-slate-300 font-medium">Date & Time: 10-03-2026, 10:00 AM</p>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>AKASH E A - 8848733028</p>
-              <p>WILLIAM BANCHAMIN - 7012049496</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-            <div class="text-center mt-6 space-y-4">
-              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
-                 class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                REGISTER NOW →
-              </a>
-              <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 3 -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="electrobuild.png" alt="Circuit Assembling Poster" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-2xl font-bold title-font text-cyan-300">CIRCUIT ASSEMBLING - ELECTRO BUILD</h3>
-            <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 01:00 PM</p>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>MOHAMED RAFI M S - 9656968670</p>
-              <p>RIVIN C Z - 9947051748</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-            <div class="text-center mt-6 space-y-4">
-              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
-                 class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                REGISTER NOW →
-              </a>
-              <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 4 -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="compilecrash.png" alt="C Programming Poster" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-2xl font-bold title-font text-cyan-300">C-PROGRAMMING - COMPILE CLASH</h3>
-            <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 01:00 PM</p>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>HIRAN S NAIR - 9656968670</p>
-              <p>VYSHNAV U R - 8891023548</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-            <div class="text-center mt-6 space-y-4">
-              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
-                 class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                 REGISTER NOW →
-              </a>
-              <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 5 -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="pes.jpg" alt="Football Tournament Poster" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-2xl font-bold title-font text-cyan-300">FOOTBALL - PESS TOURNAMENT</h3>
-            <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 01:00 PM</p>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>HIRAN S NAIR - 9656968670</p>
-              <p>VYSHNAV U R - 8891023548</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: Rs.500</p>
-            <div class="text-center mt-6 space-y-4">
-              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
-                 class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                 REGISTER NOW →
-              </a>
-              <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
-            </div>
-          </div>
-        </div>
-
-        <!-- Event 6 -->
-        <div class="event-card">
-          <div class="event-poster-box">
-            <img src="rcs.jpg" alt="Event 6 Poster" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-2xl font-bold title-font text-cyan-300">RC SOCCER - TURBO TURF</h3>
-            <p class="text-slate-300 font-medium">Date & Time: 10-03-2026, 01:00PMX</p>
-            <div class="text-sm text-slate-300 space-y-1">
-              <p><strong>Contacts:</strong></p>
-              <p>ABHAY T V -9995051264</p>
-              <p>KRISHNARAJ-7306770952</p>
-            </div>
-            <p class="text-green-400 font-bold text-lg">Prize Pool: 500</p>
-            <div class="text-center mt-6 space-y-4">
-              <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
-                 class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                REGISTER NOW →
-              </a>
-              <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
-            </div>
-          </div>
+        <div class="mt-12">
+          <p class="text-cyan-400 text-2xl mb-8 tracking-widest font-medium flex items-center justify-center gap-4">
+            <i class="fas fa-bolt text-yellow-400 text-4xl animate-pulse"></i>
+            ELEVARC 2.0 BEGINS IN
+          </p>
+          <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"></div>
+          <p class="mt-10 text-xl text-slate-300">
+            <strong>9th & 10th March 2026</strong> • 9:00 AM onwards
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Landscape Image -->
+    <section class="py-12 bg-[#0f172a]">
+      <div class="max-w-7xl mx-auto px-6">
+        <img 
+          src="srgptc.jpeg" 
+          alt="Sreerama Government Polytechnic College Campus" 
+          class="w-full h-auto rounded-2xl shadow-2xl shadow-cyan-900/30 object-cover"
+        >
+      </div>
+    </section>
+
+    <!-- Department Vision -->
+    <section id="vision" class="py-16 bg-[#0a0e17]">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT VISION</h2>
+        <div class="green-line mx-auto mb-12"></div>
+        <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
+          <p class="text-xl text-slate-100 leading-relaxed text-center">
+            TO BE RECOGNIZED AS THE PREMIER CENTER IN THE FIELD OF ELECTRONICS ENGINEERING EDUCATION, PRODUCING TECHNICALLY COMPETENT AND SOCIALLY RESPONSIBLE PROFESSIONALS.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Department Mission -->
+    <section id="mission" class="py-16 bg-[#0f172a]">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl md:text-6xl font-black title-font text-center neon-text mb-8">DEPARTMENT MISSION</h2>
+        <div class="green-line mx-auto mb-12"></div>
+        <div class="vision-mission-text rounded-2xl mx-auto max-w-4xl">
+          <ul class="text-xl text-slate-200 leading-relaxed space-y-6 list-disc pl-8">
+            <li>M1: TO IMPART TECHNICAL EDUCATION IN LINE WITH EFFECTIVE TEACHING LEARNING PROCESS TO MEET THE CURRENT INDUSTRIAL AND SOCIETAL NEEDS.</li>
+            <li>M2: TO STRENGTHEN ACADEMIC INFRASTRUCTURE BY PROVIDING STATE-OF-THE-ART LABORATORIES THAT ALIGN WITH TRENDS IN TECHNOLOGY.</li>
+            <li>M3: TO PROVIDE A CONDUCIVE ENVIRONMENT TO ENCOURAGE STUDENTS TO DEVELOP ENTREPRENEURSHIP SKILLS AND LIFE-LONG LEARNING.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section – 6 events -->
+    <section id="events" class="py-24 bg-gradient-to-b from-[#0a0e17] to-black">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-6xl font-black title-font text-center neon-text mb-6">OUR EVENTS</h2>
+        <p class="text-center text-cyan-300 text-2xl mb-16">6 electrifying competitions • Register now!</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          <!-- Event 1 -->
+          <div class="event-card">
+            <div class="event-poster-box">
+              <img src="mindmaze.png" alt="Cross Word Puzzle Poster" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-2xl font-bold title-font text-cyan-300">CROSS WORD PUZZLE - MINDMAZE MATRIX</h3>
+              <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 10:00 AM</p>
+              <div class="text-sm text-slate-300 space-y-1">
+                <p><strong>Contacts:</strong></p>
+                <p>OBIN C BABY - 8714177613</p>
+                <p>FATHIMA RISHANA R R - 9142044858</p>
+              </div>
+              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+              <div class="text-center mt-6 space-y-4">
+                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
+                   class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
+                  REGISTER NOW →
+                </a>
+                <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="event-card">
+            <div class="event-poster-box">
+              <img src="techcortex.png" alt="Technical Quiz Poster" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-2xl font-bold title-font text-cyan-300">TECHNICAL QUIZ - TECH CORTEX</h3>
+              <p class="text-slate-300 font-medium">Date & Time: 10-03-2026, 10:00 AM</p>
+              <div class="text-sm text-slate-300 space-y-1">
+                <p><strong>Contacts:</strong></p>
+                <p>AKASH E A - 8848733028</p>
+                <p>WILLIAM BANCHAMIN - 7012049496</p>
+              </div>
+              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+              <div class="text-center mt-6 space-y-4">
+                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
+                   class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
+                  REGISTER NOW →
+                </a>
+                <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="event-card">
+            <div class="event-poster-box">
+              <img src="electrobuild.png" alt="Circuit Assembling Poster" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-2xl font-bold title-font text-cyan-300">CIRCUIT ASSEMBLING - ELECTRO BUILD</h3>
+              <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 01:00 PM</p>
+              <div class="text-sm text-slate-300 space-y-1">
+                <p><strong>Contacts:</strong></p>
+                <p>MOHAMED RAFI M S - 9656968670</p>
+                <p>RIVIN C Z - 9947051748</p>
+              </div>
+              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+              <div class="text-center mt-6 space-y-4">
+                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
+                   class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
+                  REGISTER NOW →
+                </a>
+                <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="event-card">
+            <div class="event-poster-box">
+              <img src="compilecrash.png" alt="C Programming Poster" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-2xl font-bold title-font text-cyan-300">C-PROGRAMMING - COMPILE CLASH</h3>
+              <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 01:00 PM</p>
+              <div class="text-sm text-slate-300 space-y-1">
+                <p><strong>Contacts:</strong></p>
+                <p>HIRAN S NAIR - 9656968670</p>
+                <p>VYSHNAV U R - 8891023548</p>
+              </div>
+              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
+              <div class="text-center mt-6 space-y-4">
+                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
+                   class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
+                  REGISTER NOW →
+                </a>
+                <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 5 -->
+          <div class="event-card">
+            <div class="event-poster-box">
+              <img src="pes.jpg" alt="Football Tournament Poster" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-2xl font-bold title-font text-cyan-300">FOOTBALL - PESS TOURNAMENT</h3>
+              <p class="text-slate-300 font-medium">Date & Time: 09-03-2026, 01:00 PM</p>
+              <div class="text-sm text-slate-300 space-y-1">
+                <p><strong>Contacts:</strong></p>
+                <p>HIRAN S NAIR - 9656968670</p>
+                <p>VYSHNAV U R - 8891023548</p>
+              </div>
+              <p class="text-green-400 font-bold text-lg">Prize Pool: Rs.500</p>
+              <div class="text-center mt-6 space-y-4">
+                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
+                   class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
+                  REGISTER NOW →
+                </a>
+                <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 6 -->
+          <div class="event-card">
+            <div class="event-poster-box">
+              <img src="rcs.jpg" alt="RC Soccer Poster" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-2xl font-bold title-font text-cyan-300">RC SOCCER - TURBO TURF</h3>
+              <p class="text-slate-300 font-medium">Date & Time: 10-03-2026, 01:00 PM</p>
+              <div class="text-sm text-slate-300 space-y-1">
+                <p><strong>Contacts:</strong></p>
+                <p>ABHAY T V - 9995051264</p>
+                <p>KRISHNARAJ - 7306770952</p>
+              </div>
+              <p class="text-green-400 font-bold text-lg">Prize Pool: 500</p>
+              <div class="text-center mt-6 space-y-4">
+                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank"
+                   class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
+                  REGISTER NOW →
+                </a>
+                <img src="elevarc.png" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- End of padding wrapper for fixed header -->
 
   <!-- Footer -->
   <footer class="py-12 bg-black border-t border-cyan-900/50 text-center text-slate-400">
@@ -363,6 +402,3 @@
   </script>
 </body>
 </html>
-
-
-
