@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>ELEVARC 2.0 | Electronics Tech Fest</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -13,6 +14,10 @@
       --electric-blue: #00f0ff;
       --neon-purple: #9d00ff;
       --dark-bg: #0a0e17;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     html, body {
@@ -28,6 +33,7 @@
       color: white;
       min-height: 100vh;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
@@ -48,7 +54,6 @@
       align-items: center;
       padding: 1rem 0.75rem;
       max-width: 100%;
-      margin: 0 auto;
     }
 
     .title-font {
@@ -61,45 +66,84 @@
       text-shadow: 0 0 10px var(--electric-blue), 0 0 25px var(--electric-blue), 0 0 50px var(--neon-purple);
     }
 
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1a0d2e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .countdown-card {
+      background: rgba(0, 240, 255, 0.08);
+      border: 2px solid var(--electric-blue);
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .vision-mission-text {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .event-card {
+      background: rgba(0, 240, 255, 0.05);
+      border: 1px solid var(--electric-blue);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.15);
+      backdrop-filter: blur(8px);
+      max-width: 100%;
+    }
+
+    .event-poster-box {
+      height: 260px;
+      background: linear-gradient(45deg, #1e293b, #0f172a);
+      border-bottom: 2px solid var(--electric-blue);
+    }
+
+    .register-btn {
+      background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
+      color: black;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .register-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--electric-blue);
+      color: white;
+    }
+
+    .event-date-highlight {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid #22c55e;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      color: #bbf7d0;
+      display: inline-block;
+    }
+
     @media (max-width: 640px) {
       .header-inner {
         padding-left: 0.75rem;
         padding-right: 0.5rem;
       }
-      h1.text-3xl {
-        font-size: 1.75rem;           /* smaller logo on mobile to prevent clipping */
+      .title-font {
+        font-size: 1.75rem;           /* smaller to prevent clipping */
       }
-      section, div.max-w-7xl {
+      .pt-24 {
+        padding-top: 5rem !important; /* adjusted for smaller header */
+      }
+      section, .max-w-7xl {
         padding-left: 0.75rem !important;
         padding-right: 0.75rem !important;
       }
-      .event-card {
-        margin-left: 0;
-        margin-right: 0;
+      .event-poster-box {
+        height: 200px;
       }
-    }
-
-    .event-card {
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Your other styles here (hero, countdown, vision, events, etc.) */
-    .hero { background: linear-gradient(135deg, #0f172a 0%, #1a0d2e 100%); position: relative; overflow: hidden; }
-    .countdown-card { background: rgba(0, 240, 255, 0.08); border: 2px solid var(--electric-blue); box-shadow: 0 0 35px rgba(0, 240, 255, 0.35); backdrop-filter: blur(10px); }
-    .vision-mission-text { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 1rem; padding: 2rem; }
-    .event-poster-box { height: 260px; background: linear-gradient(45deg, #1e293b, #0f172a); border-bottom: 2px solid var(--electric-blue); }
-    .register-btn { background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple)); color: black; font-weight: bold; }
-    .register-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--electric-blue); color: white; }
-
-    @media (max-width: 640px) {
-      .event-poster-box { height: 200px; }
     }
   </style>
 </head>
@@ -111,7 +155,8 @@
     <button id="menu-toggle" class="md:hidden text-3xl text-white focus:outline-none">
       <i class="fas fa-bars"></i>
     </button>
-    <nav class="hidden md:flex gap-10 text-lg font-medium">
+
+    <nav class="hidden md:flex gap-8 md:gap-12 text-lg font-medium">
       <a href="#home" class="hover:text-cyan-300">Home</a>
       <a href="#vision" class="hover:text-cyan-300">Vision</a>
       <a href="#mission" class="hover:text-cyan-300">Mission</a>
@@ -129,25 +174,28 @@
   </div>
 </header>
 
-<div class="pt-20 px-3 md:px-6">
+<div class="pt-24 px-3 md:px-6">
 
-  <!-- Your sections: home, vision, mission, events -->
-  <!-- Keep the rest of your content here (hero, countdown, image, vision, mission, events cards, footer) -->
-
-  <!-- Example placeholder for events section start -->
-  <section id="events" class="py-16">
-    <div class="text-center mb-10">
-      <h2 class="text-5xl md:text-6xl font-black title-font neon-text">OUR EVENTS</h2>
+  <!-- Hero + Countdown -->
+  <section id="home" class="hero min-h-screen flex items-center justify-center py-16">
+    <div class="w-full max-w-5xl text-center space-y-12 px-4">
+      <h1 class="text-6xl md:text-8xl font-black title-font neon-text">ELEVARC <span class="text-4xl md:text-6xl">2.0</span></h1>
+      <p class="text-2xl md:text-3xl text-cyan-300 font-medium">
+        DEPARTMENT OF ELECTRONICS ENGINEERING<br>SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR
+      </p>
+      <div class="mt-12">
+        <p class="text-cyan-400 text-xl mb-6">ELEVARC 2.0 BEGINS IN</p>
+        <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-md mx-auto"></div>
+        <p class="mt-8 text-lg text-slate-300">9th & 10th March 2026 • 9:00 AM onwards</p>
+      </div>
     </div>
-    <!-- Your event cards go here -->
   </section>
 
-</div>
+  <!-- Add your other sections here (landscape image, vision, mission, events) -->
+  <!-- For brevity I'm showing only header + hero part -->
+  <!-- Paste your original sections (vision, mission, events cards, footer) below -->
 
-<footer class="py-10 bg-black text-center text-slate-400 border-t border-cyan-900/40">
-  <p>© 2026 DEPARTMENT OF ELECTRONICS ENGINEERING</p>
-  <p>SREERAMA GOVERNMENT POLYTECHNIC COLLEGE, THRIPRAYAR</p>
-</footer>
+</div>
 
 <script>
   // Mobile menu toggle
@@ -161,9 +209,46 @@
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-times');
     });
+
+    // Close menu when clicking links
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      });
+    });
   }
 
-  // Your countdown script here if you still want it
+  // Countdown (your original code)
+  function startCountdown() {
+    const target = new Date("2026-03-09T09:00:00+05:30").getTime();
+    const countdownEl = document.getElementById('countdown');
+    function update() {
+      const now = new Date().getTime();
+      let diff = target - now;
+      if (diff <= 0) {
+        countdownEl.innerHTML = '<div class="col-span-full text-green-300 p-6 rounded-xl text-3xl font-bold">ELEVARC 2.0 IS LIVE!</div>';
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      countdownEl.innerHTML = `
+        <div class="countdown-card p-6 rounded-xl text-center"><div class="text-5xl font-black text-cyan-300">${days}</div><div class="text-sm">DAYS</div></div>
+        <div class="countdown-card p-6 rounded-xl text-center"><div class="text-5xl font-black text-cyan-300">${hours}</div><div class="text-sm">HOURS</div></div>
+        <div class="countdown-card p-6 rounded-xl text-center"><div class="text-5xl font-black text-cyan-300">${minutes}</div><div class="text-sm">MINUTES</div></div>
+        <div class="countdown-card p-6 rounded-xl text-center"><div class="text-5xl font-black text-cyan-300">${seconds}</div><div class="text-sm">SECONDS</div></div>
+      `;
+    }
+    setInterval(update, 1000);
+    update();
+  }
+
+  window.onload = startCountdown;
 </script>
 </body>
 </html>
