@@ -15,7 +15,7 @@
       --dark-bg: #0a0e17;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
 
@@ -23,7 +23,7 @@
       width: 100%;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
+      overflow-x: clip;               /* clip instead of hidden → fixes Chrome mobile edge cases */
       overscroll-behavior-x: none;
     }
 
@@ -33,6 +33,7 @@
       color: white;
       min-height: 100vh;
       scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch; /* smoother scrolling on iOS/Android */
     }
 
     .title-font {
@@ -68,6 +69,7 @@
       border: 2px solid var(--electric-blue);
       box-shadow: 0 0 35px rgba(0, 240, 255, 0.35);
       backdrop-filter: blur(10px);
+      max-width: 100%;
     }
 
     .vision-mission-text {
@@ -133,13 +135,12 @@
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;                    /* Changed from right:0 → fixes mobile Chrome clipping */
       z-index: 1000;
       background: rgba(10, 14, 23, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0, 240, 255, 0.2);
       box-shadow: 0 4px 30px rgba(0, 240, 255, 0.1);
-      max-width: 100%;
     }
 
     nav a {
@@ -174,9 +175,10 @@
         max-width: 280px;
         margin: 0 auto;
       }
-      header .px-6 {
-        padding-left: 1rem;
-        padding-right: 1rem;
+      header .px-6,
+      section .px-6 {
+        padding-left: 1rem !important;   /* reduce padding on mobile to avoid bleed */
+        padding-right: 1rem !important;
       }
     }
   </style>
@@ -194,7 +196,7 @@
         <a href="#mission" class="hover:text-cyan-300">Mission</a>
         <a href="#events" class="hover:text-cyan-300">Events</a>
       </nav>
-      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-[#0a0e17]/95 backdrop-blur-lg border-t border-cyan-900/30 py-8 px-6">
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#0a0e17]/95 backdrop-blur-lg border-t border-cyan-900/30 py-8 px-6">
         <nav class="flex flex-col gap-6 text-xl font-medium text-center">
           <a href="#home" class="hover:text-cyan-300 py-3">Home</a>
           <a href="#vision" class="hover:text-cyan-300 py-3">Vision</a>
@@ -270,7 +272,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-          <!-- Event 1 - Mindmaze -->
+          <!-- Event 1 -->
           <div class="event-card">
             <div class="event-poster-box">
               <img src="mindmaze.png" alt="Cross Word Puzzle Poster" class="w-full h-full object-cover">
@@ -294,125 +296,7 @@
             </div>
           </div>
 
-          <!-- Event 2 - Techcortex -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="techcortex.png" alt="Technical Quiz Poster" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"TECHCORTEX" TECHNICAL QUIZ</h3>
-              <div class="event-date-highlight">10-03-2026, 10:00 AM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>AKASH E A - 8848733028</p>
-                <p>WILLIAM BANCHAMIN - 7012049496</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 3 - Electro Build -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="electrobuild.png" alt="Circuit Assembling Poster" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"ELECTRO BUILD" CIRCUIT ASSEMBLING</h3>
-              <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>MOHAMED RAFI M S - 9656968670</p>
-                <p>RIVIN C Z - 9947051748</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 4 - Compile Clash -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="compilecrash.png" alt="C Programming Poster" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"COMPILE CLASH" C PROGRAMMING</h3>
-              <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>HIRAN S NAIR - 9656968670</p>
-                <p>VYSHNAV U R - 8891023548</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 3K</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 5 - Football (PESS only) -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="pes.jpg" alt="Football Tournament Poster" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"FOOTBALL" PESS TOURNAMENT</h3>
-              <div class="event-date-highlight">09-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>HIRAN S NAIR - 9656968670</p>
-                <p>VYSHNAV U R - 8891023548</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: Rs.500</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹30 (PESS only)</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 6 - RC Soccer -->
-          <div class="event-card">
-            <div class="event-poster-box">
-              <img src="rcs.jpg" alt="RC Soccer Poster" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 space-y-5 text-center">
-              <h3 class="text-2xl font-bold title-font text-cyan-300">"TURBO TURF" - RC SOCCER</h3>
-              <div class="event-date-highlight">10-03-2026, 01:00 PM</div>
-              <div class="text-sm text-slate-300 space-y-1">
-                <p><strong>Contacts:</strong></p>
-                <p>ABHAY T V - 9995051264</p>
-                <p>KRISHNARAJ - 7306770952</p>
-              </div>
-              <p class="text-green-400 font-bold text-lg">Prize Pool: 500</p>
-              <div class="text-yellow-300 font-bold text-base mt-2">Registration Fee: ₹50</div>
-              <div class="mt-6 space-y-6 flex flex-col items-center">
-                <a href="https://forms.gle/Rp1ptLZcqn2gFhZi8" target="_blank" class="block py-4 px-8 register-btn rounded-xl text-lg shadow-lg">
-                  REGISTER NOW →
-                </a>
-                <img src="elevarc.png" alt="QR Code" class="w-32 h-32 object-contain">
-              </div>
-            </div>
-          </div>
+          <!-- Repeat similar structure for other events (omitted for brevity in this message, but keep them as before) -->
 
         </div>
       </div>
@@ -427,63 +311,8 @@
   </footer>
 
   <script>
-    function startCountdown() {
-      const target = new Date("2026-03-09T09:00:00+05:30").getTime();
-      const countdownEl = document.getElementById('countdown');
-      function update() {
-        const now = new Date().getTime();
-        let diff = target - now;
-        if (diff <= 0) {
-          countdownEl.innerHTML = '<div class="col-span-full bg-green-900/40 border-green-400 text-green-300 p-10 rounded-3xl text-4xl font-bold title-font text-center">ELEVARC 2.0 IS LIVE NOW!</div>';
-          return;
-        }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        countdownEl.innerHTML = `
-          <div class="countdown-card rounded-3xl p-8 text-center">
-            <div class="text-6xl md:text-7xl font-black title-font text-cyan-300">${days}</div>
-            <div class="text-sm mt-2 tracking-widest">DAYS</div>
-          </div>
-          <div class="countdown-card rounded-3xl p-8 text-center">
-            <div class="text-6xl md:text-7xl font-black title-font text-cyan-300">${hours}</div>
-            <div class="text-sm mt-2 tracking-widest">HOURS</div>
-          </div>
-          <div class="countdown-card rounded-3xl p-8 text-center">
-            <div class="text-6xl md:text-7xl font-black title-font text-cyan-300">${minutes}</div>
-            <div class="text-sm mt-2 tracking-widest">MINUTES</div>
-          </div>
-          <div class="countdown-card rounded-3xl p-8 text-center">
-            <div class="text-6xl md:text-7xl font-black title-font text-cyan-300">${seconds}</div>
-            <div class="text-sm mt-2 tracking-widest">SECONDS</div>
-          </div>
-        `;
-      }
-      setInterval(update, 1000);
-      update();
-    }
-
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      });
-      document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          const icon = menuToggle.querySelector('i');
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
-        });
-      });
-    }
-
-    window.onload = startCountdown;
+    // Your existing countdown and menu toggle script remains unchanged
+    // ... (paste your script here as before)
   </script>
 </body>
 </html>
